@@ -8,5 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxtjs/seo',
     '@nuxt/icon',
+    '@vueuse/nuxt',
+    '@nuxtjs/eslint-module',
   ],
 })
