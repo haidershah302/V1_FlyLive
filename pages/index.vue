@@ -1,13 +1,11 @@
 <template>
     <div>
-        This is the index page
+        <NuxtLink class="btn btn-primary m-4" to="/auth/">Login</NuxtLink>
+        <NuxtLink class="btn btn-primary m-4" to="/auth/">Register</NuxtLink>
     </div>
 </template>
 
 <script>
-export default {
-
-}
 </script>
 
 <style scoped>
