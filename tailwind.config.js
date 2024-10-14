@@ -55,9 +55,51 @@ export default {
 
           "error-content": "#fee2e2",
         },
+        // FlyLiveDark: {
+        //
+        //   "primary": "#fce7f3",
+        //
+        //   "primary-content": "#ec4899",
+        //
+        //   "secondary": "#fae8ff",
+        //
+        //   "secondary-content": "#e879f9",
+        //
+        //   "accent": "#fef3c7",
+        //
+        //   "accent-content": "#f59e0b",
+        //
+        //   "neutral": "#f3f4f6",
+        //
+        //   "neutral-content": "#111827",
+        //
+        //   "base-100": "#303030",
+        //
+        //   "base-200": "#e7e5e4",
+        //
+        //   "base-300": "#f5f5f4",
+        //
+        //   "base-content": "#f5f5f5",
+        //
+        //   "info": "#67e8f9",
+        //
+        //   "info-content": "#cffafe",
+        //
+        //   "success": "#00f190",
+        //
+        //   "success-content": "#d1fae5",
+        //
+        //   "warning": "#facc15",
+        //
+        //   "warning-content": "#fef9c3",
+        //
+        //   "error": "#ef4444",
+        //
+        //   "error-content": "#fee2e2",
+        // },
       }
     ],
-
+    // darkTheme: "FlyLiveDark",
     base: true, // applies background color and foreground color for root element by default
 
     styled: true, // include daisyUI colors and design decisions for all components

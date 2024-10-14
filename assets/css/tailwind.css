@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply min-h-screen flex items-center justify-center bg-base-300;
+    @apply min-h-screen;
 }
 
 p {
@@ -31,4 +31,16 @@ p {
 .slide-right-leave-to {
     opacity: 0;
     transform: translate(0px, 0);
+}
+
+
+/* Shared CSS */
+.dev-flex-middle {
+    @apply flex flex-col items-center justify-center;
+}
+
+iconify-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
 }
