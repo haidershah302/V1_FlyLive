@@ -7,5 +7,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/scripts',
     '@nuxtjs/seo',
+    '@nuxt/icon',
   ],
 })
