@@ -17,7 +17,7 @@
                         @dataInput="console.log($event)"
                     />
 
-                    <select class="select select-bordered w-full max-w-xs shadow-lg">
+                    <select class="select_input">
                         <option disabled selected>Gender</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -26,14 +26,14 @@
                 </div>
             </div>
 
-            <select class="select select-bordered w-full shadow-lg mb-4">
+            <select class="select_input mb-4">
                 <option disabled selected>Date of Birth</option>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Others</option>
             </select>
 
-            <select class="select select-bordered w-full shadow-lg mb-4">
+            <select class="select_input mb-4">
                 <option disabled selected>Country</option>
                 <option>Male</option>
                 <option>Female</option>
@@ -57,6 +57,15 @@
                 type="number"
                 label="Phone No"
                 icon="fa6-solid:phone"
+                @dataInput="console.log($event)"
+            />
+
+            <DefaultInput
+                class="mb-4"
+                name="password"
+                type="password"
+                label="Password"
+                icon="fluent:lock-closed-key-16-filled"
                 @dataInput="console.log($event)"
             />
 
@@ -86,5 +95,7 @@ definePageMeta({
 </script>
 
 <style scoped>
-
+.select_input {
+    @apply select select-bordered w-full shadow-lg font-mono font-semibold text-base-content/80;
+}
 </style>

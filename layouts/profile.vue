@@ -1,8 +1,8 @@
 <template>
     <div>
 
-        <Subheader from="/">
-            <div slot="heading" class="h-full w-ful flex flex-col justify-center">
+        <Subheader from="/" goto="/profile/modify">
+            <div class="h-full w-ful flex flex-col justify-center">
                 <h1 class="text-center">Profile</h1>
             </div>
         </Subheader>
@@ -106,7 +106,7 @@
 
         </div>
 
-        <slot />
+        <slot class="h-screen" />
 
 
 

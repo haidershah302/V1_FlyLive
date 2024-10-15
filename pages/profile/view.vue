@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <SectionTitle class="mb-4">
             Agency
         </SectionTitle>
@@ -36,56 +37,23 @@
 
         <div class="z-10 mb-4 px-2 w-full absolute bottom-0 flex flex-wrap justify-between">
 
-            <NuxtLink class="btn btn-sm gap-1 btn-secondary shadow-lg shadow-secondary/60">
-                <Icon name="ant-design:signal-filled" size="auto" />
+            <NuxtLink class="btn btn-sm gap-1 btn-secondary shadow-md shadow-secondary">
+                <Icon name="lucide:locate-fixed" size="20px" />
                 <span>Track</span>
             </NuxtLink>
 
-            <NuxtLink class="btn btn-sm gap-1 btn-primary shadow-lg shadow-secondary/60">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+            <NuxtLink class="btn btn-sm gap-1 btn-primary shadow-md shadow-primary">
+                <Icon name="si:heart-duotone" size="20px" />
                 <span>Follow</span>
             </NuxtLink>
 
-            <NuxtLink class="btn btn-sm gap-1 btn-secondary shadow-lg shadow-secondary/60">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+            <NuxtLink class="btn btn-sm gap-1 btn-success shadow-md shadow-success">
+                <Icon name="ic:sharp-meeting-room" size="20px" />
                 <span>Room</span>
             </NuxtLink>
 
-            <NuxtLink class="btn btn-sm gap-1 btn-secondary shadow-lg shadow-secondary/60">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+            <NuxtLink class="btn btn-sm gap-1 btn-info shadow-lg shadow-info">
+                <Icon name="token:chat" size="20px" />
                 <span>chat</span>
             </NuxtLink>
 

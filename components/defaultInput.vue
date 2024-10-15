@@ -49,9 +49,6 @@ const variants = {
 
 let input_variant = variants[props.variant] || variants.default;
 
-console.log(input_variant);
-
-
 defineEmits(['dataInput'])
 
 </script>

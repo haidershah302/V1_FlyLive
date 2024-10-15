@@ -14,7 +14,7 @@
             </button>
 
             <button type="button" class="btn flex-auto bg-base-100 shadow-xl shadow-primary-content border-primary-content">
-                <img src="/assets/auth/instagram-icon.png" width="35" alt="">
+                <img src="/assets/auth/instagram-icon.png" width="36" alt="">
             </button>
 
         </div>
@@ -45,6 +45,8 @@
                 icon="fluent:lock-closed-key-16-filled"
                 @dataInput="console.log($event)"
             />
+
+
 <!--                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->
 
 

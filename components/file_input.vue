@@ -8,7 +8,7 @@
 
             <img v-if="profile_picture" :src="profile_picture" style="margin: 0 auto;width: 90%" alt="Profile Picture">
 
-            <Icon v-if="!profile_picture" name="fluent:lock-closed-key-16-filled" class="text-primary" color="currentColor" size="26px" />
+            <Icon v-if="!profile_picture" name="streamline:user-profile-focus-solid" class="text-primary" color="currentColor" size="36px" />
 
         </label>
     </div>
