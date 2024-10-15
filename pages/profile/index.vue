@@ -55,6 +55,12 @@ const menuElement = [
         class: 'btn-accent shadow-md shadow-accent',
     },
     {
+        name: 'My Income',
+        icon: 'fontisto:dollar',
+        url: '/',
+        class: 'btn-success shadow-md shadow-success',
+    },
+    {
         name: 'Feed Back',
         icon: 'fluent:person-feedback-28-filled',
         url: '/',
