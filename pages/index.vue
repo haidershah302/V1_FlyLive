@@ -1,12 +1,19 @@
 <template>
     <div>
-        <NuxtLink class="btn btn-primary m-4" to="/auth/">Login</NuxtLink>
-        <NuxtLink class="btn btn-primary m-4" to="/auth/register">Register</NuxtLink>
-        <NuxtLink class="btn btn-primary m-4" to="/profile">Profile</NuxtLink>
+        <banner-carousel />
+
+        <HomeCarousel />
+
+        <RoomGrid />
     </div>
 </template>
 
-<script>
+<script setup>
+import RoomGrid from "~/components/roomGrid.vue";
+
+definePageMeta({
+    layout: 'home',
+});
 </script>
 
 <style scoped>
