@@ -44,3 +44,13 @@ iconify-icon {
     width: 1em;
     height: 1em;
 }
+
+.flex-it-middle
+{
+    @apply flex flex-col justify-center text-center place-items-center;
+}
+
+.arc-bottom {
+    border-bottom-left-radius: 100% 170px;
+    border-bottom-right-radius: 100% 170px;
+}

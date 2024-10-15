@@ -27,7 +27,7 @@ const menuElement = [
     {
         name: 'Wallet',
         icon: 'ion:wallet',
-        url: '/',
+        url: '/profile/recharge',
         class: 'btn-success shadow-md shadow-success',
     },
     {
