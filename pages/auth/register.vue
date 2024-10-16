@@ -26,18 +26,13 @@
                 </div>
             </div>
 
-            <select class="select_input mb-4">
-                <option disabled selected>Date of Birth</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Others</option>
-            </select>
+            <input type="datetime-local" class="input input-bordered">
 
             <select class="select_input mb-4">
                 <option disabled selected>Country</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Others</option>
+                <option>Pakistan</option>
+                <option>India</option>
+                <option>Japan</option>
             </select>
 
 
