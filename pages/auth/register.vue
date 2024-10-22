@@ -3,7 +3,7 @@
 
         <form class="p-5">
 
-            <div class="flex mb-5 gap-2">
+            <div class="flex mb-6 gap-2">
 
                 <File_input class="flex-1" />
 
@@ -14,19 +14,40 @@
                         type="text"
                         label="Full Name"
                         icon="solar:user-bold"
-                        @dataInput="console.log($event)"
+                        :required="true"
+                        @dataInput="name = $event; console.log(name)"
                     />
 
-                    <select class="select_input">
-                        <option disabled selected>Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Others</option>
-                    </select>
+                    <DefaultInput
+                        class="mb-4"
+                        name="email"
+                        type="email"
+                        label="Email"
+                        icon="solar:user-bold"
+                        :required="true"
+                        @dataInput="email = $event; console.log(email)"
+                    />
                 </div>
             </div>
 
-            <input type="datetime-local" class="input input-bordered">
+            <div class="divider px-5 mb-6">Your Details</div>
+
+            <DefaultInput
+                class="mb-4"
+                name="name"
+                type="datetime-local"
+                label="Date of Birth"
+                icon="solar:user-bold"
+                :required="true"
+                @dataInput="console.log(event)"
+            />
+
+            <select class="select_input mb-4">
+              <option disabled selected>Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Others</option>
+            </select>
 
             <select class="select_input mb-4">
                 <option disabled selected>Country</option>
@@ -61,13 +82,11 @@
                 type="password"
                 label="Password"
                 icon="fluent:lock-closed-key-16-filled"
-                @dataInput="console.log($event)"
+                @dataInput="password = $event"
             />
 
 
-            <NuxtLink to="/">
-                <button class="btn btn-primary shadow-lg shadow-primary/30 mb-4 block w-full">Register</button>
-            </NuxtLink>
+          <button @click.prevent="signup" class="btn btn-primary shadow-lg shadow-primary/30 mb-4 block w-full">Register</button>
 
             <NuxtLink to="/auth/" class="btn btn-sm btn-secondary shadow-lg shadow-secondary/60">
                 Login
@@ -87,6 +106,26 @@ import DefaultInput from "~/components/defaultInput.vue";
 definePageMeta({
     layout: 'auth'
 })
+
+
+const name = ref('');
+const email = ref('');
+const password = ref('');
+
+async function signup () {
+
+  const result = await $fetch('https://apicrud.test/api/register', {
+    method: 'POST',
+    body: {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    }
+  });
+
+  console.log(result);
+}
+
 </script>
 
 <style scoped>
