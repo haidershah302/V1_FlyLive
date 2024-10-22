@@ -114,7 +114,7 @@ const password = ref('');
 
 async function signup () {
 
-  const result = await $fetch('https://apicrud.test/api/register', {
+  const result = await $fetch('https://fly-live.org/api/register', {
     method: 'POST',
     body: {
       name: name.value,
