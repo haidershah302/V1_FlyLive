@@ -117,15 +117,11 @@ const password = ref('');
 let errors = ref(null);
 let success = ref(null);
 
-watch(errors, (newVal, oldVal) => {
-  console.log(newVal, oldVal);
-})
-
 const cookie = useCookie('my_auth_token');
 async function signup() {
-  console.log(name.value, email.value, password.value)
+
   try {
-    const result = await $fetch(`${apiUrl}signup`, {
+    cookie.value = await $fetch(`${apiUrl}signup`, {
       method: 'POST',
       body: {
         name: name.value,
@@ -133,7 +129,6 @@ async function signup() {
         password: password.value,
       }
     });
-    cookie.value = result;
     errors.value = null;
     success.value = cookie.user;
 
