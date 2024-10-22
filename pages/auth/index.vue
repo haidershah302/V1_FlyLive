@@ -106,7 +106,8 @@ import {ref, watch} from "vue";
 const { apiUrl } = useRuntimeConfig().public;
 
 definePageMeta({
-    layout: 'auth'
+    layout: 'auth',
+    middleware: 'guest'
 })
 
 
@@ -115,7 +116,7 @@ const email = ref('');
 const password = ref('');
 const errors = ref({});
 
-const cookie = useCookie('my_auth_token');
+const cookie = useCookie('auth_token');
 
 watch([email, password], ([newEmail, newPassword]) => {
   errors.value = {};
@@ -140,13 +141,20 @@ async function login() {
     return;
   }
 
-  cookie.value = await $fetch(apiUrl + 'login_user', {
-    method: 'POST',
-    body: {
-      email: email.value,
-      password: password.value,
-    }
-  });
+  try {
+    cookie.value = await $fetch(apiUrl + 'login_user', {
+      method: 'POST',
+      body: {
+        email: email.value,
+        password: password.value,
+      }
+    });
+    errors.value = null;
+
+    return navigateTo('/');
+  } catch (e) {
+    errors.value = e.data.errors;
+  }
 }
 
 

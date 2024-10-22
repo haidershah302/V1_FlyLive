@@ -1,7 +1,6 @@
   <template>
     <div>
 
-
         <div class="px-5 bg-primary my-5">
           <button @click="getUser" class="btn btn-info mb-4">Fetch User</button>
           <p v-if="data">
@@ -20,13 +19,14 @@
 <script setup>
 import RoomGrid from "~/components/roomGrid.vue";
 
-const cookie = useCookie('my_auth_token');
+const cookie = useCookie('auth_token');
 const { apiUrl } = useRuntimeConfig().public;
 
 const data = ref(null);
 
 definePageMeta({
     layout: 'home',
+    middleware: 'auth'
 });
 
 async function getUser() {

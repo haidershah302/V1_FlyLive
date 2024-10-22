@@ -26,7 +26,6 @@
 
             <slot></slot>
 
-
         </div>
 
     </div>
@@ -34,9 +33,4 @@
 
 <script setup>
 const route = useRoute();
-
 </script>
-
-<style scoped>
-
-</style>

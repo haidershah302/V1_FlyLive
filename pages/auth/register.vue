@@ -108,7 +108,8 @@ import DefaultInput from "~/components/defaultInput.vue";
 const { apiUrl } = useRuntimeConfig().public;
 
 definePageMeta({
-  layout: 'auth'
+  layout: 'auth',
+  middleware: 'guest'
 })
 
 const name = ref('');
@@ -117,11 +118,11 @@ const password = ref('');
 let errors = ref(null);
 let success = ref(null);
 
-const cookie = useCookie('my_auth_token');
+const cookie = useCookie('auth_token');
 async function signup() {
   console.log(apiUrl)
   try {
-    cookie.value = await $fetch(`${apiUrl}signup`, {
+    const result = await $fetch(`${apiUrl}signup`, {
       method: 'POST',
       body: {
         name: name.value,
@@ -129,10 +130,10 @@ async function signup() {
         password: password.value,
       }
     });
+    cookie.value = result;
     errors.value = null;
-    success.value = cookie.user;
 
-    console.log(cookie.user)
+    return navigateTo('/');
 
   } catch (e) {
     errors.value = e.data.errors;

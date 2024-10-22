@@ -87,20 +87,24 @@
 <script setup>
 import DefaultInput from "~/components/defaultInput.vue";
 
-const cookie = useCookie('my_auth_token');
+definePageMeta({
+  middleware: 'auth'
+});
+
+const cookie = useCookie('auth_token');
 const { apiUrl } = useRuntimeConfig().public;
 
 async function logout() {
-  console.log('here')
+
   const result = await $fetch(apiUrl + 'logout', {
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${cookie.value.token}`
+      'Authorization': `Bearer ${cookie.value.auth_token}`
     }
   });
 
   cookie.value = null
-  console.log(result)
+  return navigateTo('/auth/')
 }
 </script>
 

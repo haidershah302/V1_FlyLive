@@ -116,6 +116,7 @@
 import UniqueId from "~/components/uniqueId.vue";
 import Badge from "~/components/badge.vue";
 
+
 const authUser = {
     id: 1,
     name: 'User Name',
@@ -177,3 +178,4 @@ const authUser = {
     },
 }
 </script>
+
