@@ -12,7 +12,7 @@
                     <Avatar
                         :frameSrc="authedUser.frame.src"
                         :profileSrc="authedUser.profile_picture"
-                        :frameBorder="authedUser.frame.bdr_box"
+                        :frameBorder="authedUser?.frame?.bdr_box"
                         :frameSize="authedUser.frame.size"
                         url="/profile/view"
                         class="relative w-full h-full"

@@ -14,10 +14,16 @@
 
             <label :for="name">
                 {{ label }}
-                <small> {{ errorMessage }} </small>
+                <small :class="{ 'text-error' : errorMessage}">: {{ errorMessage }} </small>
             </label>
 
-            <Icon :name="icon" class="input_icon" color="currentColor" :size="icon_size" />
+            <Icon
+                :name="icon"
+                color="currentColor"
+                :size="icon_size"
+                class="input_icon"
+                :class="{ 'text-error' : errorMessage}"
+            />
         </div>
     </div>
 </template>
@@ -35,7 +41,11 @@ const props = defineProps({
     icon_size: { type: String, default: '18px'},
     variant: { type: String, default: 'default'},
     placeholder: { type: String, default: 'Text'},
-})
+});
+
+
+
+console.log(props.errorMessage);
 
 const variants = {
     default: 'text-base-content/75',
@@ -61,7 +71,7 @@ defineEmits(['dataInput'])
 }
 
 label {
-    @apply font-mono absolute top-3 left-12;
+    @apply font-mono absolute top-3 left-12 pointer-events-none;
     transition: 0.2s ease;
     transition-property: top, left, color;
 }
@@ -109,7 +119,6 @@ input:invalid:not(:placeholder-shown) {
 input:valid:not(:placeholder-shown) {
     @apply border border-success shadow-md shadow-success-content;
 }
-
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

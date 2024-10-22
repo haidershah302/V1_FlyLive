@@ -6,6 +6,15 @@ export default defineNuxtConfig({
     pageTransition: { name: 'slide-right', mode: 'out-in' },
     layoutTransition: { name: 'slide-right', mode: 'out-in' }
   },
+
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.API_URL
+    }
+  },
+
+
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/fonts',
