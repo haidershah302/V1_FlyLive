@@ -15,7 +15,7 @@
                         label="Full Name"
                         icon="solar:user-bold"
                         :required="true"
-                        @dataInput="name = $event"
+                        @dataInput="name"
                         :errorMessage="errors.name"
                     />
 
@@ -26,7 +26,7 @@
                         label="Email"
                         icon="solar:user-bold"
                         :required="true"
-                        @dataInput="email = $event"
+                        @dataInput="email"
                         :errorMessage="errors.email"
                     />
                 </div>
@@ -84,7 +84,7 @@
                 type="password"
                 label="Password"
                 icon="fluent:lock-closed-key-16-filled"
-                @dataInput="password = $event"
+                @dataInput="password"
                 :errorMessage="errors.password"
             />
 
@@ -116,51 +116,31 @@ definePageMeta({
 const name = ref('');
 const email = ref('');
 const password = ref('');
-const errors = ref({});
+let errors = ref({});
 
-watch([name, email, password], ([newName, newEmail, newPassword]) => {
-  errors.value = {};
-
-  if (!newName) {
-    errors.value.name = 'Name is required.';
-  }
-
-  const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-  if (!newEmail) {
-    errors.value.email = 'Email is required.';
-  } else if (!emailPattern.test(newEmail)) {
-    errors.value.email = 'Invalid email format.';
-  }
-
-  if (!newPassword) {
-    errors.value.password = 'Password is required.';
-  } else if (newPassword.length < 6) {
-    errors.value.password = 'Password must be at least 6 characters long.';
-  }
-});
-
+const cookie = useCookie('my_auth_token');
 async function signup() {
-  if (Object.keys(errors.value).length > 0) {
-    console.error("Form validation errors:", errors.value);
-    return;
+
+  try {
+    cookie.value = await $fetch(`${apiUrl}signup`, {
+      method: 'POST',
+      body: {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      }
+    });
+  } catch ({data}) {
+    errors = data.errors;
   }
-
-  const result = await $fetch(apiUrl + '/register', {
-    method: 'POST',
-    body: {
-      name: name.value,
-      email: email.value,
-      password: password.value,
-    }
-  });
-
-  console.log(result);
 }
+
+
 
 </script>
 
 <style scoped>
-.select_input {
-    @apply select select-bordered w-full shadow-lg font-mono font-semibold text-base-content/80;
-}
+//.select_input {
+//    @apply select select-bordered w-full shadow-lg font-mono font-semibold text-base-content/80;
+//}
 </style>

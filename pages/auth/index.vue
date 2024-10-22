@@ -24,17 +24,52 @@
         <div class="divider px-5">OR</div>
 
         <!--    Login Form Starts    -->
+      
 
-        <form class="p-5">
+      <!-- New Button Section Start -->
+      <div class="flex justify-center gap-4 py-5">
+        <button v-auto-animate type="button"
+                class="btn-pill"
+                @click="withWhat = 'phone'"
+                :class="withWhat === 'phone' ? 'btn-active' : 'btn-inActive'">
+          <Icon name="fa-solid:phone" size="15px"/>
+          Phone
+        </button>
 
-            <DefaultInput
+        <button v-auto-animate type="button"
+                class="btn-pill"
+                @click="withWhat = 'email'"
+                :class="withWhat === 'email' ? 'btn-active' : 'btn-inActive'">
+          <Icon name="fa6-solid:envelope" size="15px"/>
+          Email
+        </button>
+      </div>
+      <!-- New Button Section End -->
+
+        <form class="p-5" @submit.prevent="login">
+
+            <DefaultInput v-auto-animate
+                v-if="withWhat === 'phone'"
                 class="mb-4"
                 name="phone"
                 type="number"
                 label="Phone No"
-                icon="fa6-solid:phone"
-                @dataInput="console.log($event)"
+                icon="fa6-solid:envelope"
+                @dataInput=""
             />
+
+            <DefaultInput v-auto-animate
+                v-if="withWhat === 'email'"
+                class="mb-4"
+                name="email"
+                type="email"
+                label="Email"
+                icon="solar:user-bold"
+                :required="true"
+                @dataInput="email = $event"
+                :errorMessage="errors.email"
+            />
+
 <!--                pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"-->
 
             <DefaultInput
@@ -43,20 +78,18 @@
                 type="password"
                 label="Password"
                 icon="fluent:lock-closed-key-16-filled"
-                @dataInput="console.log($event)"
+                @dataInput="password = $event"
+                :errorMessage="errors.password"
             />
 
 
 <!--                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->
 
 
-            <NuxtLink to="/">
-                <button class="btn btn-primary shadow-lg shadow-primary/30 mb-4 block w-full">Login</button>
-            </NuxtLink>
+            <button type="submit" class="btn btn-primary shadow-lg shadow-primary/30 mb-4 block w-full">Login</button>
 
             <NuxtLink to="/auth/register"
                       class="btn btn-sm btn-secondary shadow-lg shadow-secondary/60">Register</NuxtLink>
-
 
         </form>
 
@@ -68,12 +101,67 @@
 <script setup>
 
 import DefaultInput from "~/components/defaultInput.vue";
+import {ref, watch} from "vue";
+
+const { apiUrl } = useRuntimeConfig().public;
 
 definePageMeta({
     layout: 'auth'
 })
+
+
+const withWhat = ref('phone');
+const email = ref('');
+const password = ref('');
+const errors = ref({});
+
+const cookie = useCookie('my_auth_token');
+
+watch([email, password], ([newEmail, newPassword]) => {
+  errors.value = {};
+
+  const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  if (!newEmail) {
+    errors.value.email = 'Email is required.';
+  } else if (!emailPattern.test(newEmail)) {
+    errors.value.email = 'Invalid email format.';
+  }
+
+  if (!newPassword) {
+    errors.value.password = 'Password is required.';
+  } else if (newPassword.length < 6) {
+    errors.value.password = 'Password must be at least 6 characters long.';
+  }
+});
+
+async function login() {
+  if (Object.keys(errors.value).length > 0) {
+    console.error("Form validation errors:", errors.value);
+    return;
+  }
+
+  cookie.value = await $fetch(apiUrl + 'login_user', {
+    method: 'POST',
+    body: {
+      email: email.value,
+      password: password.value,
+    }
+  });
+}
+
+
 </script>
 
 <style scoped>
+.btn-pill{
+  @apply btn-sm rounded-full flex items-center gap-1 px-2;
+}
 
+.btn-active {
+  @apply bg-primary shadow-lg shadow-primary/30 text-primary-content drop-shadow;
+}
+
+.btn-inActive {
+  @apply bg-base-100 shadow-lg shadow-neutral-content text-base-content drop-shadow;
+}
 </style>

@@ -21,5 +21,6 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@vueuse/nuxt',
     '@nuxt/icon',
+    '@formkit/auto-animate/nuxt',
   ],
 })

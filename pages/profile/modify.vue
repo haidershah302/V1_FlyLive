@@ -75,13 +75,33 @@
             <NuxtLink to="/profile/">
                 <button class="btn btn-primary shadow-lg shadow-primary/30 mb-4 block w-full">Save Changes</button>
             </NuxtLink>
-
         </form>
+
+        <div class="px-5">
+          <button @click="logout" class="btn btn-error shadow-lg shadow-error/30 mb-4 block w-full">Logout</button>
+        </div>
+
     </div>
 </template>
 
 <script setup>
 import DefaultInput from "~/components/defaultInput.vue";
+
+const cookie = useCookie('my_auth_token');
+const { apiUrl } = useRuntimeConfig().public;
+
+async function logout() {
+  console.log('here')
+  const result = await $fetch(apiUrl + 'logout', {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${cookie.value.token}`
+    }
+  });
+
+  cookie.value = null
+  console.log(result)
+}
 </script>
 
 <style scoped>
