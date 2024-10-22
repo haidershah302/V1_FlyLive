@@ -12,9 +12,9 @@
             />
 <!--                :pattern="pattern"-->
 
-            <label :for="name">
+            <label :for="name" :class="{ 'text-error -top-5 left-0' : errorMessage}">
                 {{ label }}
-                <small :class="{ 'text-error' : errorMessage}">: {{ errorMessage }} </small>
+                <small :class="{ 'text-error ' : errorMessage}">: {{ errorMessage }} </small>
             </label>
 
             <Icon
