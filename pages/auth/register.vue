@@ -3,11 +3,11 @@
 
     <form class="p-5">
 
-      <div v-if="success" class="shadow-inner shadow-lg bg-success text-success-content mx-3 mb-6 rounded p-4">
+      <div v-if="success" class="shadow-inner bg-success text-success-content mx-3 mb-6 rounded p-4">
         {{success}}
       </div>
 
-      <div v-if="errors" class="shadow-inner shadow-lg bg-error text-error-content mx-3 mb-6 rounded p-4">
+      <div v-if="errors" class="shadow-inner bg-error text-error-content mx-3 mb-6 rounded p-4">
         <ul>
           <li v-for="error in errors">{{ error[0] }}</li>
         </ul>
@@ -119,7 +119,7 @@ let success = ref(null);
 
 const cookie = useCookie('my_auth_token');
 async function signup() {
-
+  console.log(apiUrl)
   try {
     cookie.value = await $fetch(`${apiUrl}signup`, {
       method: 'POST',
