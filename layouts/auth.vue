@@ -9,7 +9,6 @@
                 <h1 class="text-4xl font-mono font-bold text-center">Fly-live</h1>
             </NuxtLink>
         </div>
-
         <slot />
     </div>
 </template>

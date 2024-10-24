@@ -43,10 +43,6 @@ const props = defineProps({
     placeholder: { type: String, default: 'Text'},
 });
 
-
-
-console.log(props.errorMessage);
-
 const variants = {
     default: 'text-base-content/75',
     primary: 'text-primary shadow-primary-content border-primary',

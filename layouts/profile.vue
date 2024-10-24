@@ -26,10 +26,10 @@
 
                 <div>
 
-                    <NuxtLink to="/profile" class="font-bold text-lg block">User Name</NuxtLink>
+                    <NuxtLink to="/profile" class="font-bold text-lg block">{{ authUser.name }}</NuxtLink>
 
                     <UniqueId>
-                        123456
+                      123456
                     </UniqueId>
 
                     <div class="flex gap-4 font-mono font-bold text-center">
@@ -108,18 +108,20 @@
 
         <slot class="h-screen" />
 
-
-
     </div>
 </template>
 <script setup lang="ts">
 import UniqueId from "~/components/uniqueId.vue";
 import Badge from "~/components/badge.vue";
+import {toUpperCase} from "valibot";
+
+const cookie = useCookie('auth_token');
+const { apiUrl } = useRuntimeConfig().public;
 
 
-const authUser = {
+let authUser = {
     id: 1,
-    name: 'User Name',
+    name: cookie.value.user.name,
     profile_picture: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
     frame: {
         src: '/assets/frames/3.png',
@@ -177,5 +179,11 @@ const authUser = {
         ],
     },
 }
+
+// let auth_user = $fetch(apiUrl + 'user', {
+//   headers: { 'Authorization': `Bearer ${cookie.value.token}`}
+// });
+
+
 </script>
 

@@ -34,58 +34,58 @@
 
       <div class="divider px-5 mb-6">Your Details</div>
 
-      <!--            <DefaultInput-->
-      <!--                class="mb-4"-->
-      <!--                name="name"-->
-      <!--                type="datetime-local"-->
-      <!--                label="Date of Birth"-->
-      <!--                icon="solar:user-bold"-->
-      <!--                :required="true"-->
-      <!--                @dataInput=""-->
-      <!--            />-->
+        <DefaultInput
+            class="mb-4"
+            name="name"
+            type="datetime-local"
+            label="Date of Birth"
+            icon="solar:user-bold"
+            :required="true"
+            @dataInput=""
+        />
 
-      <!--            <select class="select_input mb-4">-->
-      <!--              <option disabled selected>Gender</option>-->
-      <!--              <option>Male</option>-->
-      <!--              <option>Female</option>-->
-      <!--              <option>Others</option>-->
-      <!--            </select>-->
+        <select class="select_input mb-4">
+          <option disabled selected>Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Others</option>
+        </select>
 
-      <!--            <select class="select_input mb-4">-->
-      <!--                <option disabled selected>Country</option>-->
-      <!--                <option>Pakistan</option>-->
-      <!--                <option>India</option>-->
-      <!--                <option>Japan</option>-->
-      <!--            </select>-->
-
-
-      <!--            <DefaultInput-->
-      <!--                class="mb-4"-->
-      <!--                name="signature"-->
-      <!--                type="text"-->
-      <!--                label="Signature"-->
-      <!--                icon="wpf:signature"-->
-      <!--                @dataInput="$event"-->
-      <!--            />-->
+        <select class="select_input mb-4">
+            <option disabled selected>Country</option>
+            <option>Pakistan</option>
+            <option>India</option>
+            <option>Japan</option>
+        </select>
 
 
-      <!--            <DefaultInput-->
-      <!--                class="mb-4"-->
-      <!--                name="phone"-->
-      <!--                type="number"-->
-      <!--                label="Phone No"-->
-      <!--                icon="fa6-solid:phone"-->
-      <!--                @dataInput="$event"-->
-      <!--            />-->
+        <DefaultInput
+            class="mb-4"
+            name="signature"
+            type="text"
+            label="Signature"
+            icon="wpf:signature"
+            @dataInput="$event"
+        />
 
-      <DefaultInput
-          class="mb-4"
-          name="password"
-          type="password"
-          label="Password"
-          icon="fluent:lock-closed-key-16-filled"
-          @dataInput="password = $event"
-      />
+
+        <DefaultInput
+            class="mb-4"
+            name="phone"
+            type="number"
+            label="Phone No"
+            icon="fa6-solid:phone"
+            @dataInput="$event"
+        />
+
+        <DefaultInput
+            class="mb-4"
+            name="password"
+            type="password"
+            label="Password"
+            icon="fluent:lock-closed-key-16-filled"
+            @dataInput="password = $event"
+        />
 
 
       <button @click.prevent="signup" class="btn btn-primary shadow-lg shadow-primary/30 mb-4 block w-full">Register</button>

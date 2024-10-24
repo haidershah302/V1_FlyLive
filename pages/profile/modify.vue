@@ -96,14 +96,15 @@ const { apiUrl } = useRuntimeConfig().public;
 
 async function logout() {
 
-  const result = await $fetch(apiUrl + 'logout', {
+  await $fetch(apiUrl + 'logout', {
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${cookie.value.auth_token}`
+      'Authorization': `Bearer ${cookie.value.token}`
     }
   });
 
   cookie.value = null
+
   return navigateTo('/auth/')
 }
 </script>

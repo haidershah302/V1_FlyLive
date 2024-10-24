@@ -19,8 +19,13 @@
 </template>
 
 <script setup>
+
+const cookie = useCookie('auth_token');
+const { apiUrl } = useRuntimeConfig().public;
+
 definePageMeta({
-    layout: 'profile'
+    layout: 'profile',
+    middleware: 'auth'
 })
 
 const menuElement = [

@@ -9,8 +9,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      // apiUrl: process.env.API_URL
-      apiUrl: "https://fly-live.org/api/"
+      apiUrl: process.env.API_URL
+      // apiUrl: "https://fly-live.org/api/"
     }
   },
 
